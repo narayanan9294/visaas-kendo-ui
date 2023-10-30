@@ -1,0 +1,151 @@
+smart-grid {
+    width: 100% !important;
+    margin-bottom: 30px;
+}
+
+.enqsr-container {
+    margin-top: 20px;
+    box-shadow: 0px 2px 3px 0px #aca3a3 !important;
+}
+
+.enqsr-header {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 20px !important;
+}
+
+.smart-action-button,
+.smart-drop-down-button {
+    background-color: #ffffff !important;
+}
+
+smart-drop-down-list,
+smart-input {
+    font-size: 12px !important;
+    width: 160px !important;
+}
+
+smart-date-input {
+    width: 210px;
+}
+
+.smart-input {
+    font-size: 12px !important;
+    color: #323232 !important;
+}
+
+.enqsr-row {
+    margin-bottom: 20px;
+}
+
+.reg-submit-btn,
+.reg-submit-btn:hover {
+    background-color: #1c74c1;
+    color: white;
+}
+
+.reg-btn {
+    border: 1px solid grey;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    font-size: 13px;
+    height: 30px;
+}
+
+/*Smart-accordian*/
+smart-accordion {
+    width: 100%;
+    height: auto;
+    margin-top: 2px;
+}
+
+smart-accordion-item {
+    box-shadow: 0px 1px 3px 0px #aca3a3 !important;
+}
+
+.smart-accordion-item-header {
+    color: #323232 !important;
+    background: #f5f5f5 !important;
+}
+
+.smart-container {
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+}
+
+label {
+    color: #323232;
+}
+
+.modalTxtLink {
+    color: #4097e2;
+    text-decoration: underline;
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+.enq-status {
+    padding: 3px 12px 3px 12px;
+    border-radius: 10px;
+    margin-left: 7px;
+}
+
+.status-confirmed {
+    background-color: #e1ffe9;
+    color: #459358;
+}
+
+.status-new {
+    background-color: #ecf6ff;
+    color: #2e87d5;
+}
+
+.status-docreq {
+    background-color: #ffefee;
+    color: #a31b12;
+}
+
+/** Smart-window */
+.smart-window {
+    top: 30% !important;
+}
+
+.smart-minimize-button,
+.smart-maximize-button {
+    display: none;
+}
+
+smart-window smart-input,
+smart-window smart-date-input,
+smart-window smart-drop-down-list {
+    width: 290px !important;
+}
+
+.enqForm {
+    width: 100%;
+}
+
+.smart-grid-icon.show {
+    display: none !important;
+    /* display: flex!important; */
+}
+
+.smart-validation-summary {
+    display: none;
+}
+
+.smart-validation-error:not(smart-check-box)>div.smart-container:after {
+    background-color: #ffffff;
+}
+.input-border-validation {
+    border-color: #dc3545 !important;
+}
+
+.input-validation-error {
+    border-color: #E0E0E0 !important;
+}
+.smart-validation-error:not(.underlined):not(.outlined){
+    border-color: #E0E0E0 !important;
+}
