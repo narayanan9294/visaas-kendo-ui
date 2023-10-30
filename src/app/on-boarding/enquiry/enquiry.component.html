@@ -51,10 +51,11 @@
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="2" [col]="2">
             <kendo-formfield>
-              <kendo-textbox
+              <!-- <kendo-textbox
               placeholder="Enter License Expiry Date"
               formControlName="licenseExpiry"
-            ></kendo-textbox> 
+            ></kendo-textbox>  -->
+            <range-datepicker [min]="min" [max]="max" formControlName="licenseExpiry" ></range-datepicker>
             </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="2" [col]="3">

@@ -32,7 +32,9 @@ import {
 })
 export class EnquiryComponent {
   public items: CtsBreadCrumbItem[] = [home, onboarding,item3,enquiryList];
-
+  public min: Date=new Date() ;
+  public max!: Date ;
+  
   public searchForm: FormGroup;
   constructor(
     private dataService: DataService,
