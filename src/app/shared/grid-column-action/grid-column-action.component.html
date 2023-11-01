@@ -1,0 +1,6 @@
+<kendo-grid-command-column title="Action">
+    <ng-template kendoGridCellTemplate let-dataItem>
+        <button (click)="onEditClick(dataItem)">Edit</button>
+        <button (click)="onDeleteClick(dataItem)">Delete</button>
+      </ng-template>
+  </kendo-grid-command-column>

@@ -1,7 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ContentChildren, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { State } from '@progress/kendo-data-query';
 import {
+  ColumnComponent,
   DataStateChangeEvent,
+  GridComponent,
   GridDataResult,
   SelectionEvent, 
 } from '@progress/kendo-angular-grid';
@@ -24,21 +26,23 @@ import {
   item3,
   item4,
 } from 'src/app/common/breadcrumbs.constants';
+
+const resolvedPromise = Promise.resolve(null); //fancy setTimeout
 @Component({
   selector: 'app-enquiry',
   templateUrl: './enquiry.component.html',
   styleUrls: ['./enquiry.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class EnquiryComponent {
+export class EnquiryComponent implements OnInit,AfterViewInit {
   public items: CtsBreadCrumbItem[] = [home, onboarding,item3,enquiryList];
   public min: Date=new Date() ;
   public max!: Date ;
-  
   public searchForm: FormGroup;
-  constructor(
+  @ViewChild("grid") grid!: GridComponent;
+    constructor(
     private dataService: DataService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
     this.searchForm = this.formBuilder.group({
       name: new FormControl(null, [
@@ -61,9 +65,28 @@ export class EnquiryComponent {
       pageSize: new FormControl(10),
       licenseExpiry: new FormControl(null, [Validators.minLength(50)]),
     });
+    
+  }
+  ngAfterViewInit(): void {
+    
+  
+
+  }
+  ngOnInit(): void {
     this.sendRequest(this.state);
   }
 
+  valueFromChild(grid:any){
+    console.log(grid)
+    // resolvedPromise.then(() => { 
+    //   grid.columns.map((column:any) => {
+    //     return {
+    //         field: column.field,
+    //         title: column.title
+    //     };
+    // });
+    //});
+}
   searchApi: string =
     environment.base +
     environment.gateway +
@@ -133,4 +156,5 @@ export class EnquiryComponent {
         this.data.total = result.data.total;
       });
   }
+
 }

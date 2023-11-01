@@ -6,47 +6,37 @@
         <kendo-gridlayout [gap]="{ rows: 20, cols: 50 }">
           <kendo-gridlayout-item [row]="1" [col]="1">
             <kendo-formfield>
-              <kendo-textbox 
-                placeholder="Enter Agency Name"
-                formControlName="name"
-              ></kendo-textbox>
-              <kendo-formerror   *ngIf="searchForm.controls['name'].errors?.['maxlength']"
-              >Error: Max characters Exceeded</kendo-formerror> 
-               <kendo-formerror   *ngIf="searchForm.controls['name'].errors?.['pattern']">Error: Special characters not allowed</kendo-formerror>
+              <kendo-textbox placeholder="Enter Agency Name" formControlName="name"></kendo-textbox>
+              <kendo-formerror *ngIf="searchForm.controls['name'].errors?.['maxlength']">Error: Max characters
+                Exceeded</kendo-formerror>
+              <kendo-formerror *ngIf="searchForm.controls['name'].errors?.['pattern']">Error: Special characters not
+                allowed</kendo-formerror>
             </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="1" [col]="2">
             <kendo-formfield>
-              <kendo-textbox
-                placeholder="Enter Admin Email"
-                formControlName="email"
-              ></kendo-textbox>              
-              <kendo-formerror  *ngIf="searchForm.controls['email'].errors?.['email']">Error: Not valid email format</kendo-formerror>
-              <kendo-formerror   *ngIf="searchForm.controls['email'].errors?.['maxlength']"
-              >Error: Max characters Exceeded</kendo-formerror> 
+              <kendo-textbox placeholder="Enter Admin Email" formControlName="email"></kendo-textbox>
+              <kendo-formerror *ngIf="searchForm.controls['email'].errors?.['email']">Error: Not valid email
+                format</kendo-formerror>
+              <kendo-formerror *ngIf="searchForm.controls['email'].errors?.['maxlength']">Error: Max characters
+                Exceeded</kendo-formerror>
             </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="1" [col]="3">
-            <kendo-formfield>             
-              <kendo-textbox
-                placeholder="Enter Trade Name"
-                formControlName="tradeName"
-              ></kendo-textbox> 
-              <kendo-formerror>Error: Special characters not allowed</kendo-formerror>  
-              <kendo-formerror   *ngIf="searchForm.controls['tradeName'].errors?.['maxlength']"
-              >Error: Max characters Exceeded</kendo-formerror>            
-            </kendo-formfield>                       
+            <kendo-formfield>
+              <kendo-textbox placeholder="Enter Trade Name" formControlName="tradeName"></kendo-textbox>
+              <kendo-formerror>Error: Special characters not allowed</kendo-formerror>
+              <kendo-formerror *ngIf="searchForm.controls['tradeName'].errors?.['maxlength']">Error: Max characters
+                Exceeded</kendo-formerror>
+            </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="2" [col]="1">
             <kendo-formfield>
-              <kendo-textbox
-              placeholder="Enter License No"
-              formControlName="licenseNo"
-            ></kendo-textbox> 
-            <kendo-formerror   *ngIf="searchForm.controls['licenseNo'].errors?.['pattern']"
-            >Error: Special characters not allowed</kendo-formerror> 
-            <kendo-formerror   *ngIf="searchForm.controls['licenseNo'].errors?.['maxlength']"
-            >Error: Max characters Exceeded</kendo-formerror>            
+              <kendo-textbox placeholder="Enter License No" formControlName="licenseNo"></kendo-textbox>
+              <kendo-formerror *ngIf="searchForm.controls['licenseNo'].errors?.['pattern']">Error: Special characters
+                not allowed</kendo-formerror>
+              <kendo-formerror *ngIf="searchForm.controls['licenseNo'].errors?.['maxlength']">Error: Max characters
+                Exceeded</kendo-formerror>
             </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="2" [col]="2">
@@ -55,31 +45,23 @@
               placeholder="Enter License Expiry Date"
               formControlName="licenseExpiry"
             ></kendo-textbox>  -->
-            <range-datepicker [min]="min" [max]="max" formControlName="licenseExpiry" ></range-datepicker>
+              <range-datepicker [min]="min" [max]="max" formControlName="licenseExpiry"></range-datepicker>
             </kendo-formfield>
           </kendo-gridlayout-item>
           <kendo-gridlayout-item [row]="2" [col]="3">
-            <kendo-gridlayout [gap]="5"  [cols]="[{ width: 100 },{ width: 100 }]">
+            <kendo-gridlayout [gap]="5" [cols]="[{ width: 100 },{ width: 100 }]">
               <kendo-gridlayout-item [col]="1" [row]="1" class="box rect">
-                <button
-                    kendoButton                  
-                    themeColor="tertiary"
-                    iconClass="fa fa-search"
-                   (click)="onSearch()" >
-                   Search
-                  </button>
+                <button kendoButton themeColor="tertiary" iconClass="fa fa-search" (click)="onSearch()">
+                  Search
+                </button>
 
-                  
+
                 <!-- <kendo-button iconClass="fa fa-search" themeColor="primary" click="onSearch()">Search</kendo-button> -->
               </kendo-gridlayout-item>
               <kendo-gridlayout-item [col]="2" [row]="1" class="box rect">
-                <button
-                kendoButton                  
-                themeColor="primary"
-                iconClass="fa fa-eraser"
-               (click)="onClear()" >
-               Clear
-              </button>               
+                <button kendoButton themeColor="primary" iconClass="fa fa-eraser" (click)="onClear()">
+                  Clear
+                </button>
               </kendo-gridlayout-item>
             </kendo-gridlayout>
           </kendo-gridlayout-item>
@@ -92,8 +74,8 @@
       <kendo-card-header class="k-hstack">
         <h5 kendoCardTitle>Enquiries List:</h5>
       </kendo-card-header>
-      <kendo-card-body>
-        <kendo-grid
+      <kendo-card-body *ngIf="data.data.length > 0">
+        <!-- <kendo-grid
           [data]="data"
           [loading]="loading"
           [pageable]="true"
@@ -124,7 +106,14 @@
               <button (click)="onEditClick(dataItem)">Edit</button>
             </ng-template>
           </kendo-grid-column>
-        </kendo-grid>     
+        </kendo-grid>   -->
+        <crud-kendo-grid  [data]="data" >
+          <kendo-grid-column field="name" title="Agency Name" ></kendo-grid-column>
+          <cts-grid-column  field="name" title="Agency Name" ></cts-grid-column>
+          <cts-grid-column  field="email" title="Admin E-mail" ></cts-grid-column>
+          <cts-grid-column  field="tradeName" title="Trade Name" ></cts-grid-column>
+          <cts-grid-column  field="licenseNo" title="License no" ></cts-grid-column>
+        </crud-kendo-grid>
       </kendo-card-body>
     </kendo-card>
   </kendo-gridlayout-item>
